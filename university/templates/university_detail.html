@@ -1,0 +1,31 @@
+
+{% load cache %}
+
+{% cache 500 sidebar %}
+    <a href="{% url 'university:university-list' %}">Back to university</a>
+    <h1>University detail: {{ university.name }}<br> {{ university.built }}</h1>
+
+
+    <div>
+
+        {% for student in university.student_set.all %}
+
+            <div >
+                <div>
+                    <div>
+                        <dd><a href={% url 'university:student-detail' student.id %}>Student</a>
+                        <li>First name: {{ student.first_name }} </li>
+                        <li>Last name: {{ student.last_name }} </li>
+                        <li>Date of birth: {{ student.date_of_birth }} </li>
+                        <li>AVG Students: {{ avg_student_in_uni.student_avg|floatformat }} </li>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        {% endfor %}
+
+    </div>
+{% endcache %}

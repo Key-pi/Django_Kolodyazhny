@@ -1,0 +1,70 @@
+
+    <title>Student</title>
+
+    {% for student in students %}
+
+        <th>
+
+        </th>
+        <ul>
+
+            <li>
+
+                <ol><p>Student: </p><a href='{% url 'university:student-detail' pk=student.pk %}'>{{ student.last_name }}</a></ol>
+                <ol><p>University: </p><a
+                        href={% url 'university:university-detail' pk=student.university.pk %}> {{ student.university }}</a>
+                </ol>
+            </li>
+        </ul>
+    {% empty %}
+        <li>No students yet.</li>
+    {% endfor %}
+
+    <div>
+<span>
+    {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; First</a>
+        <a href="?page={{ page_obj.has_previous_page_number }}">previous</a>
+    {% endif %}
+
+    <span>
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+</span>
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+        </span>
+    </div>
+
+
+
+
+{##}
+{#    <title>Student</title>#}
+{##}
+{#    {% for student in students %}#}
+{#   #}
+{#        <th>#}
+{##}
+{#        </th>#}
+{#        <ul>#}
+{##}
+{#            <li>#}
+{##}
+{#                <ol><p>Student: </p><a href='{% url 'university:student-detail' pk=student.pk %}'>{{ student.last_name }}</a></ol>#}
+{#                <ol><p>University: </p><a#}
+{#                        href={% url 'university:university-detail' pk=student.university.pk %}> {{ student.university }}</a>#}
+{#                </ol>#}
+{#            </li>#}
+{#        </ul>#}
+{#    {% empty %}#}
+{#        <li>No students yet.</li>#}
+{#    {% endfor %}#}
+{##}
+{#    <div>#}
+{#<span>#}
+{#    {% if page_obj.has_previous %}#}
+{#        <a href="?page=1">&laquo; First</a>#}
+{#        <a href="?page={{ page_obj.has_previous_page_number }}">previous</a>#}
+{#    {% endif %}#}

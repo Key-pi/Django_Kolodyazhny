@@ -1,0 +1,13 @@
+<h1>Student Detail:</h1>
+
+<dl >
+    <dt>First Name:</dt>
+    <dd>{{ student.first_name }}</dd>
+    <dt>Last Name:</dt>
+    <dd>{{ student.last_name }}</dd>
+    <dt>Date of birth:</dt>
+    <dd>{{ student.date_of_birth }}</dd>
+    <dt>University:</dt>
+    <dd><a
+            href={% url 'university:university-detail' pk=student.university.pk %}>{{ student.university }}</a>
+</dl>
